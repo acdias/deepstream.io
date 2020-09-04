@@ -23,7 +23,7 @@ export default class StrapiAuth extends DeepstreamPlugin implements DeepstreamAu
     private logger = this.services.logger.getNameSpace('HEADER_AUTHENTICATION')
 
     constructor (private pluginOptions: TokenAuthenticationOptions, private services: Readonly<DeepstreamServices>) {
-        super()
+	super()
     }
 
     /**

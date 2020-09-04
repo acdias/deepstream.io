@@ -10,7 +10,7 @@ fi
 
 echo 'Starting release'
 
-npm version $1
+npm version $1 --allow-same-version
 echo "Version now: $( node scripts/details.js VERSION )"
 
 echo 'Pushing to github'

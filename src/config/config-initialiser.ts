@@ -37,6 +37,7 @@ import LogMonitoring from '../services/monitoring/log/monitoring-log'
 import { InitialLogs } from './js-yaml-loader'
 import * as configValidator from './config-validator'
 import HeapSnapshot from '../plugins/heap-snapshot/heap-snapshot'
+import StrapiAuth from '../plugins/strapi-auth/plugin'
 
 let commandLineArguments: any
 
@@ -210,7 +211,8 @@ function handleCustomPlugins (config: DeepstreamConfig, services: any): void {
     const plugin = plugins[key]
     if (plugin.name === 'heap-snapshot') {
       services.plugins[key] = new HeapSnapshot(plugin.options || {}, services)
-    } else {
+   }
+   else {
       const PluginConstructor = resolvePluginClass(plugin, 'plugin', services.logger)
       services.plugins[key] = new PluginConstructor(plugin.options || {}, services, config)
     }
